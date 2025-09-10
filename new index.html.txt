@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>我的个人主页</title>
+<style>
+body {
+font-family: "Helvetica Neue", Arial, sans-serif;
+margin: 0;
+padding: 0;
+background: #f9f9f9;
+color: #333;
+text-align: center;
+}
+header {
+background: #4CAF50;
+color: white;
+padding: 40px 20px;
+}
+h1 {
+margin: 0;
+font-size: 2.5em;
+}
+nav a {
+margin: 0 15px;
+color: white;
+text-decoration: none;
+font-weight: bold;
+}
+section {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+text-align: left;
+}
+#countdown {
+font-size: 1.5em;
+font-weight: bold;
+color: #4CAF50;
+margin-top: 20px;
+text-align: center;
+}
+footer {
+background: #eee;
+padding: 20px;
+font-size: 0.9em;
+color: #555;
+}
+</style>
+</head>
+<body>
+<!-- 顶部 -->
+<header>
+<h1>我的主页</h1>
+<p>学习 | 项目 | 兴趣</p>
+<nav>
+<a href="#about">简介</a>
+<a href="#projects">经历</a>
+<a href="#countdownSection">倒计时</a>
+</nav>
+</header>
+
+<!-- 简介 -->
+<section id="about">
+<h2>简介</h2>
+<p>你好！这是我手搓出来的第一个网站。我会在这里展示学习经历、项目和一些有趣的小工具。</p>
+</section>
+
+<!-- 经历/项目展示 -->
+<section id="projects">
+<h2>经历</h2>
+<ul>
+<li>📊 数学竞赛：AMC 系列 + 学校数学社团</li>
+<li>💻 技术项目：小型网页工具、编程练习</li>
+<li>🎾 兴趣爱好：体育运动 & 户外活动</li>
+</ul>
+</section>
+
+<!-- 倒计时小工具 -->
+<section id="countdownSection">
+<h2>倒计时</h2>
+<p>距离下一场重要考试 (2025-11-05) 还有：</p>
+<div id="countdown"></div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+<p>© 2025 我的主页 | 手搓个人网站</p>
+</footer>
+
+<!-- 倒计时脚本 -->
+<script>
+function updateCountdown() {
+const targetDate = new Date("2025-11-05T00:00:00");
+const now = new Date();
+const diff = targetDate - now;
+
+if (diff <= 0) {
+document.getElementById("countdown").innerText = "时间到啦！🚀";
+return;
+}
+
+const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+const minutes = Math.floor((diff / (1000 * 60)) % 60);
+const seconds = Math.floor((diff / 1000) % 60);
+
+document.getElementById("countdown").innerText =
+`${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+</body>
+</html>
